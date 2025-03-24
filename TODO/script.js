@@ -5,13 +5,15 @@ function addTask() {
 
     const taskList = document.getElementById('taskList');
     const li = document.createElement('li');
-    li.innerHTML = `<span onclick="toggleComplete(this)">${taskText}</span>
+    li.innerHTML = `<span>${taskText}</span>
+                    <button onclick="toggleComplete(this)">Complete</button>
                     <button onclick="removeTask(this)">Delete</button>`;
     taskList.appendChild(li);
     taskInput.value = '';
 }
 
-function toggleComplete(taskSpan) {
+function toggleComplete(completeBtn) {
+    const taskSpan = completeBtn.parentElement.querySelector('span');
     taskSpan.classList.toggle('completed');
 }
 
